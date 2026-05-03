@@ -6,9 +6,6 @@
  */
 
 const winston = require('winston');
-const { LoggingWinston } = require('@google-cloud/logging-winston');
-
-const loggingWinston = new LoggingWinston();
 
 const logger = winston.createLogger({
   level: process.env.LOG_LEVEL || 'info',
@@ -30,8 +27,6 @@ const logger = winston.createLogger({
         })
       ),
     }),
-    // Add Google Cloud Logging in production
-    ...(process.env.NODE_ENV === 'production' ? [loggingWinston] : []),
   ],
 });
 
