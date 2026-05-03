@@ -132,6 +132,11 @@ function initializeGemini() {
         { category: 'HARM_CATEGORY_SEXUALLY_EXPLICIT', threshold: 'BLOCK_MEDIUM_AND_ABOVE' },
         { category: 'HARM_CATEGORY_DANGEROUS_CONTENT', threshold: 'BLOCK_MEDIUM_AND_ABOVE' },
       ],
+      tools: [
+        {
+          googleSearchRetrieval: {}
+        }
+      ],
     });
     logger.info('Google Gemini AI initialized successfully');
     return true;
