@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="VoteGuide AI — An interactive, AI-powered assistant that helps citizens understand the Indian election process, timelines, voter registration, and voting procedures.">
+  <meta name="keywords" content="election process, voter education, India elections, ECI, voter registration, EVM, VVPAT, election guide, civic education">
+  <meta name="author" content="Election Education Team">
+  <meta name="theme-color" content="#4f46e5">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="VoteGuide AI — Election Process Education">
+  <meta property="og:description" content="Interactive AI assistant to understand elections, timelines, and voting procedures">
+  <meta property="og:type" content="website">
+  
+  <title>VoteGuide AI — Election Process Education Assistant</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="/css/styles.min.css">
+</head>
+<body>
+  <!-- Skip Navigation for Accessibility -->
+  <a href="#main-content" class="skip-nav" id="skip-nav">Skip to main content</a>
+
+  <!-- ─── Animated Background ─── -->
+  <div class="bg-animation" aria-hidden="true">
+    <div class="bg-gradient"></div>
+    <div class="bg-particles" id="particles-container"></div>
+  </div>
+
+  <!-- ─── Header / Navigation ─── -->
+  <header class="header" role="banner">
+    <div class="header-container">
+      <a href="#" class="logo" aria-label="VoteGuide AI Home">
+        <div class="logo-icon" aria-hidden="true">
+          <span class="logo-ballot">🗳️</span>
+        </div>
+        <div class="logo-text">
+          <span class="logo-title">VoteGuide<span class="logo-highlight">AI</span></span>
+          <span class="logo-subtitle">Election Education</span>
+        </div>
+      </a>
+      
+      <nav class="nav" role="navigation" aria-label="Main navigation">
+        <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+          <span class="hamburger"></span>
+        </button>
+        <ul class="nav-links" id="nav-links" role="menubar">
+          <li role="none"><a href="#home" class="nav-link active" role="menuitem" id="nav-home">Home</a></li>
+          <li role="none"><a href="#timeline" class="nav-link" role="menuitem" id="nav-timeline">Timeline</a></li>
+          <li role="none"><a href="#assistant" class="nav-link" role="menuitem" id="nav-assistant">AI Assistant</a></li>
+          <li role="none"><a href="#checklist" class="nav-link" role="menuitem" id="nav-checklist">Checklist</a></li>
+          <li role="none"><a href="#quiz" class="nav-link" role="menuitem" id="nav-quiz">Quiz</a></li>
+          <li role="none"><a href="#faq" class="nav-link" role="menuitem" id="nav-faq">FAQ</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ─── Main Content ─── -->
+  <main id="main-content">
+    
+    <!-- ═══════════ HERO SECTION ═══════════ -->
+    <section class="hero" id="home" aria-labelledby="hero-heading">
+      <div class="hero-content">
+        <div class="hero-badge animate-float">
+          <span class="badge-icon">🇮🇳</span>
+          <span class="badge-text">Empowering Voters</span>
+        </div>
+        <h1 id="hero-heading" class="hero-title">
+          Understand Your
+          <span class="gradient-text">Election Process</span>
+          Like Never Before
+        </h1>
+        <p class="hero-description">
+          Your AI-powered guide to understanding democratic elections — 
+          from voter registration to result declaration. 
+          Interactive, accessible, and designed for every citizen.
+        </p>
+        <div class="hero-actions">
+          <a href="#timeline" class="btn btn-primary" id="btn-explore-timeline">
+            <span>Explore Timeline</span>
+            <svg class="btn-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </a>
+          <a href="#assistant" class="btn btn-secondary" id="btn-ask-ai">
+            <span>💬 Ask AI Assistant</span>
+          </a>
+        </div>
+
+        <!-- Stats Row -->
+        <div class="hero-stats" id="hero-stats" role="list" aria-label="Election statistics">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+
+      <div class="hero-visual" aria-hidden="true">
+        <div class="hero-card-stack">
+          <div class="hero-card card-1">
+            <div class="card-emoji">📋</div>
+            <div class="card-label">Register</div>
+          </div>
+          <div class="hero-card card-2">
+            <div class="card-emoji">🗳️</div>
+            <div class="card-label">Vote</div>
+          </div>
+          <div class="hero-card card-3">
+            <div class="card-emoji">📊</div>
+            <div class="card-label">Count</div>
+          </div>
+          <div class="hero-card card-4">
+            <div class="card-emoji">🎉</div>
+            <div class="card-label">Result</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════ TIMELINE SECTION ═══════════ -->
+    <section class="section timeline-section" id="timeline" aria-labelledby="timeline-heading">
+      <div class="section-container">
+        <div class="section-header">
+          <span class="section-tag">Step by Step</span>
+          <h2 id="timeline-heading" class="section-title">Election Process <span class="gradient-text">Timeline</span></h2>
+          <p class="section-description">Follow the complete journey of an Indian election — from announcement to results</p>
+        </div>
+
+        <div class="timeline" id="timeline-container" role="list" aria-label="Election timeline">
+          <!-- Populated by JS -->
+        </div>
+
+        <!-- Timeline Detail Modal -->
+        <div class="modal-overlay" id="timeline-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" hidden>
+          <div class="modal-content">
+            <button class="modal-close" id="modal-close" aria-label="Close dialog">&times;</button>
+            <div class="modal-icon" id="modal-icon"></div>
+            <h3 id="modal-title" class="modal-title"></h3>
+            <p id="modal-duration" class="modal-duration"></p>
+            <p id="modal-description" class="modal-description"></p>
+            <ul id="modal-points" class="modal-points"></ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════ AI ASSISTANT SECTION ═══════════ -->
+    <section class="section assistant-section" id="assistant" aria-labelledby="assistant-heading">
+      <div class="section-container">
+        <div class="section-header">
+          <span class="section-tag">Powered by Google Gemini</span>
+          <h2 id="assistant-heading" class="section-title">AI Election <span class="gradient-text">Assistant</span></h2>
+          <p class="section-description">Ask any question about the election process and get instant, accurate answers</p>
+        </div>
+
+        <div class="chat-container" role="region" aria-label="AI chat assistant">
+          <div class="chat-messages" id="chat-messages" role="log" aria-live="polite" aria-label="Chat messages">
+            <div class="chat-welcome">
+              <div class="welcome-icon">🗳️</div>
+              <h3>Welcome to VoteGuide AI!</h3>
+              <p>I'm your AI-powered election education assistant. Ask me anything about the election process!</p>
+            </div>
+          </div>
+
+          <!-- Suggestions -->
+          <div class="chat-suggestions" id="chat-suggestions" role="list" aria-label="Suggested questions">
+            <!-- Populated by JS -->
+          </div>
+
+          <!-- Input -->
+          <form class="chat-input-container" id="chat-form" role="search" aria-label="Ask a question">
+            <label for="chat-input" class="sr-only">Type your question about elections</label>
+            <input 
+              type="text" 
+              id="chat-input" 
+              class="chat-input" 
+              placeholder="Ask about elections... (e.g., 'How do I register to vote?')"
+              autocomplete="off"
+              maxlength="2000"
+              aria-label="Type your question about elections"
+            >
+            <button type="submit" class="chat-send" id="chat-send" aria-label="Send message" disabled>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/>
+              </svg>
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════ VOTER CHECKLIST SECTION ═══════════ -->
+    <section class="section checklist-section" id="checklist" aria-labelledby="checklist-heading">
+      <div class="section-container">
+        <div class="section-header">
+          <span class="section-tag">Be Prepared</span>
+          <h2 id="checklist-heading" class="section-title">Voter <span class="gradient-text">Checklist</span></h2>
+          <p class="section-description">Everything you need to prepare before election day</p>
+        </div>
+
+        <div class="checklist-grid" id="checklist-container" role="list" aria-label="Voter preparation checklist">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════ QUIZ SECTION ═══════════ -->
+    <section class="section quiz-section" id="quiz" aria-labelledby="quiz-heading">
+      <div class="section-container">
+        <div class="section-header">
+          <span class="section-tag">Test Your Knowledge</span>
+          <h2 id="quiz-heading" class="section-title">Election <span class="gradient-text">Quiz</span></h2>
+          <p class="section-description">How well do you know the Indian election process? Take the quiz!</p>
+        </div>
+
+        <div class="quiz-container" id="quiz-container" role="region" aria-label="Election knowledge quiz">
+          <!-- Quiz Start -->
+          <div class="quiz-start" id="quiz-start">
+            <div class="quiz-start-icon">🧠</div>
+            <h3>Ready to Test Your Knowledge?</h3>
+            <p>10 questions about the Indian election process. See how much you know!</p>
+            <button class="btn btn-primary" id="btn-start-quiz">
+              <span>Start Quiz</span>
+              <svg class="btn-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </button>
+          </div>
+
+          <!-- Quiz Questions (shown one at a time) -->
+          <div class="quiz-question-container" id="quiz-question-container" hidden>
+            <div class="quiz-progress">
+              <div class="quiz-progress-bar" id="quiz-progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+            <div class="quiz-counter" id="quiz-counter" aria-live="polite"></div>
+            <h3 class="quiz-question-text" id="quiz-question-text"></h3>
+            <div class="quiz-options" id="quiz-options" role="radiogroup" aria-label="Answer options">
+              <!-- Options populated by JS -->
+            </div>
+            <div class="quiz-actions">
+              <button class="btn btn-secondary" id="btn-prev-question" disabled>Previous</button>
+              <button class="btn btn-primary" id="btn-next-question" disabled>Next</button>
+            </div>
+          </div>
+
+          <!-- Quiz Results -->
+          <div class="quiz-results" id="quiz-results" role="alert" aria-live="assertive" hidden>
+            <div class="quiz-score-circle" id="quiz-score-circle">
+              <svg viewBox="0 0 120 120" aria-hidden="true">
+                <circle cx="60" cy="60" r="54" class="score-bg"/>
+                <circle cx="60" cy="60" r="54" class="score-fill" id="score-fill"/>
+              </svg>
+              <div class="score-text" id="score-text">0%</div>
+            </div>
+            <h3 id="quiz-grade" class="quiz-grade"></h3>
+            <p id="quiz-message" class="quiz-message"></p>
+            <div class="quiz-review" id="quiz-review" role="list" aria-label="Quiz review">
+              <!-- Review items populated by JS -->
+            </div>
+            <button class="btn btn-primary" id="btn-retake-quiz">
+              <span>Retake Quiz</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════ FAQ SECTION ═══════════ -->
+    <section class="section faq-section" id="faq" aria-labelledby="faq-heading">
+      <div class="section-container">
+        <div class="section-header">
+          <span class="section-tag">Got Questions?</span>
+          <h2 id="faq-heading" class="section-title">Frequently Asked <span class="gradient-text">Questions</span></h2>
+          <p class="section-description">Quick answers to common questions about the election process</p>
+        </div>
+
+        <div class="faq-filters" id="faq-filters" role="tablist" aria-label="FAQ categories">
+          <button class="faq-filter active" data-category="all" role="tab" aria-selected="true" id="filter-all">All</button>
+          <button class="faq-filter" data-category="eligibility" role="tab" aria-selected="false" id="filter-eligibility">Eligibility</button>
+          <button class="faq-filter" data-category="registration" role="tab" aria-selected="false" id="filter-registration">Registration</button>
+          <button class="faq-filter" data-category="voting" role="tab" aria-selected="false" id="filter-voting">Voting</button>
+          <button class="faq-filter" data-category="rules" role="tab" aria-selected="false" id="filter-rules">Rules</button>
+          <button class="faq-filter" data-category="counting" role="tab" aria-selected="false" id="filter-counting">Counting</button>
+          <button class="faq-filter" data-category="accessibility" role="tab" aria-selected="false" id="filter-accessibility">Accessibility</button>
+        </div>
+
+        <div class="faq-list" id="faq-list" role="tabpanel" aria-label="FAQ list">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ─── Footer ─── -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer-container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <span class="footer-logo">🗳️ VoteGuide<span class="gradient-text">AI</span></span>
+          <p class="footer-tagline">Making civic education accessible to every citizen.</p>
+        </div>
+        <div class="footer-links">
+          <h3 class="footer-heading">Quick Links</h3>
+          <a href="#timeline" class="footer-link" id="footer-link-timeline">Election Timeline</a>
+          <a href="#assistant" class="footer-link" id="footer-link-assistant">AI Assistant</a>
+          <a href="#quiz" class="footer-link" id="footer-link-quiz">Take the Quiz</a>
+          <a href="#faq" class="footer-link" id="footer-link-faq">FAQs</a>
+        </div>
+        <div class="footer-resources">
+          <h3 class="footer-heading">Official Resources</h3>
+          <a href="https://eci.gov.in" target="_blank" rel="noopener noreferrer" class="footer-link" id="footer-link-eci">Election Commission of India</a>
+          <a href="https://voters.eci.gov.in" target="_blank" rel="noopener noreferrer" class="footer-link" id="footer-link-voters">Voter Registration Portal</a>
+          <a href="https://electoralsearch.eci.gov.in" target="_blank" rel="noopener noreferrer" class="footer-link" id="footer-link-search">Electoral Search</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 VoteGuide AI. Built with ❤️ for democracy. Powered by Google Gemini.</p>
+        <p class="footer-disclaimer">This is an educational tool. For official information, visit <a href="https://eci.gov.in" target="_blank" rel="noopener noreferrer">eci.gov.in</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ─── Scripts ─── -->
+  <script src="/js/app.min.js"></script>
+</body>
+</html>
