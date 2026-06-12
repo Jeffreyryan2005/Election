@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "skillforge": {
+      "command": "python",
+      "args": ["backend/mcp_server.py"],
+      "env": {
+        "GROQ_API_KEY": "${GROQ_API_KEY}"
+      }
+    }
+  }
+}
