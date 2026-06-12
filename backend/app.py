@@ -262,7 +262,42 @@ Respond with ONLY valid JSON, no markdown or extra text."""
                 print(f"Groq API error: {e}")
                 analysis = generate_mock_analysis(resume_text, github_skills, job_description)
         
-        return jsonify(analysis)
+        # Transform response to match frontend expectations
+        transformed = {
+            "match_score": analysis.get("match_score", 0),
+            "resume_skills": analysis.get("matched_skills", []),
+            "required_skills": analysis.get("required_skills", []),
+            "matched_skills": analysis.get("matched_skills", []),
+            "gap_skills": [
+                {
+                    "skill": gap,
+                    "priority": "high" if i < 2 else "medium" if i < 4 else "low",
+                    "reason": f"Required for the role but not in your current skill set"
+                }
+                for i, gap in enumerate(analysis.get("skill_gaps", []))
+            ],
+            "learning_plan": [
+                {
+                    "week": plan.get("week", i+1),
+                    "title": plan.get("focus", ""),
+                    "skills": plan.get("tasks", []),
+                    "tasks": [
+                        {
+                            "day_range": f"Day {(i*2)+1}-{(i*2)+2}",
+                            "task": task,
+                            "resource": "Online course",
+                            "resource_url": "https://learn.example.com",
+                            "type": "course"
+                        }
+                        for i, task in enumerate(plan.get("tasks", [])[:3])
+                    ]
+                }
+                for i, plan in enumerate(analysis.get("learning_plan", []))
+            ],
+            "summary": f"Your skills match {analysis.get('match_score', 0)}% of the job requirements. Focus on: {', '.join(analysis.get('skill_gaps', [])[:3])}"
+        }
+        
+        return jsonify(transformed)
     
     except Exception as e:
         print(f"Error: {e}")

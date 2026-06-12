@@ -25,9 +25,9 @@ export default function HomePage() {
   const stats = useMemo(() => {
     if (!result) return null
     return {
-      totalResumeSkills: result.resume_skills.length,
-      totalRequiredSkills: result.required_skills.length,
-      gapsFound: result.gap_skills.length,
+      totalResumeSkills: result.resume_skills?.length ?? 0,
+      totalRequiredSkills: result.required_skills?.length ?? 0,
+      gapsFound: result.gap_skills?.length ?? 0,
     }
   }, [result])
 
@@ -74,7 +74,7 @@ export default function HomePage() {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
-            resume: resumeText,
+            resume_text: resumeText,
             job_description: jobDescText,
             github_username: gitUsername || undefined,
           }),
